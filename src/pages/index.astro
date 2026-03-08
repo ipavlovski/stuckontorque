@@ -1,0 +1,40 @@
+---
+import Listing, { type PostMetadata } from '../components/listing.astro'
+import Layout from '../layouts/layout.astro'
+
+// NOTE: will get these items through a collection later
+const listings: PostMetadata[] = [
+  {
+    title: 'My very first blogpost',
+    date: '2024-09-28',
+    category: 'backend',
+    tags: ["abstract", "adobe", "adonisjs"],
+  },
+  {
+    title: 'some other blogpost',
+    date: '2024-10-31',
+    category: 'backend',
+    tags: ["indesign", "photoshop", "airtable", "premier", "airbnb"],
+  },
+  {
+    title: 'Newest blog post will go here with the length of 123',
+    date: '2025-01-23',
+    category: 'frontend',
+    tags: ["adobe-xd", "adobe"],
+  },
+]
+---
+
+<style>
+.listing-container {
+  margin: 1.25rem;
+}
+</style>
+
+<Layout>
+  <main>
+    <ul class="listing-container">
+      {listings.map((post) => <Listing post={post} href="/post" />)}
+    </ul>
+  </main>
+</Layout>

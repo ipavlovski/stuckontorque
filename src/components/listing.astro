@@ -1,0 +1,59 @@
+---
+import Tags from './tags.astro'
+
+export type PostMetadata = {
+  title: string
+  date: string
+  category: string
+  tags: string[]
+}
+
+interface Props {
+  post: PostMetadata
+  href: string
+}
+const { post, href } = Astro.props
+
+---
+
+<style>
+.listing {
+  display: flex;
+  gap: 0.75rem;
+  align-items: end;
+  padding-top: 0.125rem;
+  padding-bottom: 0.25rem;
+
+  & *:hover {
+    color: var(--color-accent);
+    cursor: pointer;
+    transition: color 300ms ease;
+  }
+
+  .created-at {
+    font-family: var(--font-alt);
+    color: var(--color-fg-alt);
+    font-size: 0.875rem;
+  }
+
+  .category {
+    font-family: var(--font-alt);
+    color: var(--color-fg-alt);
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    min-width: 9ch;
+  }
+
+  .title {
+    font-size: 0.875rem;
+  }
+}
+</style>
+
+<li class="listing">
+  <span class="created-at">{post.date}</span>
+  <span class="category">{post.category}</span>
+  <a class="title" href={href}>{post.title}</a>
+  <Tags tags={post.tags}/>
+</li>
