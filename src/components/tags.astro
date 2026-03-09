@@ -34,9 +34,10 @@ import { Icon } from 'astro-icon/components'
 
 interface Props {
   tags: string[]
+  showText?: boolean
 }
 
-const { tags } = Astro.props
+const { tags, showText = false } = Astro.props
 
 const knownTags = [
   { tag: 'abstract', icon: 'tabler:brand-abstract' },
@@ -60,16 +61,23 @@ const getMatchingTag = (tag: string) => {
 <style>
 .tags {
   display: flex;
-  gap: 0.25rem;
-  margin-left: auto;
+  gap: 0.5rem;
 }
 
 .tag {
-  :hover {
+  display: flex;
+  align-items: center;
+  gap: 0.125rem;
+
+  &:hover {
     color: var(--color-accent);
     cursor: pointer;
     transition: color 300ms ease;
   }
+}
+
+.tag-name {
+  font-size: 0.75rem;
 }
 </style>
 
@@ -78,6 +86,9 @@ const getMatchingTag = (tag: string) => {
     <li class="tag"><Icon title={tag} /></li>
   ))} -->
   {tags.map((tag) => getMatchingTag(tag)).map(({ tag, icon }) => (
-    <li class="tag"><Icon name={icon} /></li>
+    <li class="tag">
+      <Icon name={icon} />
+      {showText && <span class="tag-name">{tag}</span>}
+    </li>
   ))}
 </ul>

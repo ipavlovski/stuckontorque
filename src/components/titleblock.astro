@@ -1,0 +1,75 @@
+---
+import Tags from './tags.astro'
+
+type PostMetadata = {
+  title: string
+  date: string
+  category: string
+  tags: string[]
+}
+
+interface Props {
+  post: PostMetadata
+}
+
+const { post } = Astro.props
+---
+
+<style>
+.metadata {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.title {
+  font-size: 2.25rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  /* font-family: var(--font-alt); */
+}
+
+.category {
+  font-family: var(--font-alt);
+  color: var(--color-fg-alt);
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-right: auto;
+
+  &:hover {
+    color: var(--color-accent);
+    cursor: pointer;
+    transition: color 300ms ease;
+  }
+}
+
+.created-at {
+  font-family: var(--font-alt);
+  color: var(--color-fg-alt);
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  &:hover {
+    color: var(--color-accent);
+    cursor: pointer;
+    transition: color 300ms ease;
+  }
+}
+</style>
+
+<div>
+  <div class="metadata">
+    <span class="created-at">{post.date}</span>
+    <span class="category">{post.category}</span>
+    <Tags tags={post.tags} showText={true} />
+  </div>
+
+  <h1 class="title">{post.title}</h1>
+</div>
