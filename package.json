@@ -1,7 +1,9 @@
 {
   "packageManager": "pnpm@10.30.3",
   "scripts": {
-    "dev": "astro dev"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
   },
   "dependencies": {
     "@astrojs/react": "^4.4.2",
