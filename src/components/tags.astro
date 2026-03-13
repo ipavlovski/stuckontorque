@@ -1,43 +1,5 @@
 ---
-// import { TbBrand4Chan } from 'react-icons/tb'
-// import { TbBrandAbstract } from 'react-icons/tb'
-// import { TbBrandAdobeAfterEffect } from 'react-icons/tb'
-// import { TbBrandAdobeIllustrator } from 'react-icons/tb'
-// import { TbBrandAdobeIndesign } from 'react-icons/tb'
-// import { TbBrandAdobePhotoshop } from 'react-icons/tb'
-// import { TbBrandAdobeXd } from 'react-icons/tb'
-// import { TbBrandAdobe } from 'react-icons/tb'
-// import { TbBrandAdonisJs } from 'react-icons/tb'
-// import { TbBrandAirbnb } from 'react-icons/tb'
-// import { TbBrandAirtable } from 'react-icons/tb'
-// import { TbCircle } from 'react-icons/tb'
-
-// const knownTags = [
-//   { tag: 'abstract', icon: TbBrand4Chan },
-//   { tag: 'after-effects', icon: TbBrandAbstract },
-//   { tag: 'illustrator', icon: TbBrandAdobeAfterEffect },
-//   { tag: 'indesign', icon: TbBrandAdobeIllustrator },
-//   { tag: 'photoshop', icon: TbBrandAdobeIndesign },
-//   { tag: 'premier', icon: TbBrandAdobePhotoshop },
-//   { tag: 'adobe-xd', icon: TbBrandAdobeXd },
-//   { tag: 'adobe', icon: TbBrandAdobe },
-//   { tag: 'adonis', icon: TbBrandAdonisJs },
-//   { tag: 'airbnb', icon: TbBrandAirbnb },
-//   { tag: 'airtable', icon: TbBrandAirtable },
-// ]
-
-// const getMatchingTag = (tag: string) => {
-//   return knownTags.find((v) => v.tag == tag) || { tag, icon: TbCircle }
-// }
-
 import { Icon } from 'astro-icon/components'
-
-interface Props {
-  tags: string[]
-  showText?: boolean
-}
-
-const { tags, showText = false } = Astro.props
 
 const knownTags = [
   { tag: 'abstract', icon: 'tabler:brand-abstract' },
@@ -58,6 +20,13 @@ const knownTags = [
 const getMatchingTag = (tag: string) => {
   return knownTags.find((v) => v.tag == tag) || { tag, icon: 'tabler:circle' }
 }
+
+interface Props {
+  tags: string[]
+  showText?: boolean
+}
+
+const { tags, showText = false } = Astro.props
 ---
 
 <style>
@@ -84,9 +53,6 @@ const getMatchingTag = (tag: string) => {
 </style>
 
 <ul class="tags">
-  <!-- {tags.map((tag) => getMatchingTag(tag)).map(({ tag, icon: Icon }) => (
-    <li class="tag"><Icon title={tag} /></li>
-  ))} -->
   {tags.map((tag) => getMatchingTag(tag)).map(({ tag, icon }) => (
     <li class="tag">
       <Icon name={icon} />
