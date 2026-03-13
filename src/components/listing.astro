@@ -23,6 +23,12 @@ const { post, href } = Astro.props
   column-gap: 0.5rem;
   row-gap: 0.25rem;
 
+  & :hover {
+    cursor: pointer;
+    color: var(--color-accent);
+    transition: color 300ms ease;
+  }
+
   .created-at {
     font-family: var(--font-alt);
     color: var(--color-fg-alt);

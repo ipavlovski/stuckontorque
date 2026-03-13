@@ -22,6 +22,14 @@ const { post } = Astro.props
   justify-content: left;
   gap: 1rem;
   margin-top: 1.5rem;
+
+  @media (width <= 800px) {
+    :last-child {
+      span {
+        display: none;
+      }
+    }
+  }
 }
 
 .title {
@@ -35,7 +43,6 @@ const { post } = Astro.props
   @media (width <= 800px) {
     font-size: 1.5rem;
   }
-
 }
 
 .category {
