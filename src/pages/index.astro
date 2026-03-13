@@ -1,14 +1,19 @@
 ---
+import { getCollection } from 'astro:content'
 import Listing, { type PostMetadata } from '../components/listing.astro'
 import Layout from '../layouts/layout.astro'
-import { getCollection } from 'astro:content'
 const posts = await getCollection('posts')
-
 ---
 
 <style>
 .listing-container {
+
   margin: 1.25rem 4.5rem;
+  max-width: calc(1200px - 6rem);
+
+  @media (width >= calc(1200px + 4.5rem)) {
+    margin: 1.25rem auto;
+  }
 }
 </style>
 

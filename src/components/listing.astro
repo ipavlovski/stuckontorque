@@ -13,22 +13,15 @@ interface Props {
   href: string
 }
 const { post, href } = Astro.props
-
 ---
 
 <style>
 .listing {
-  display: flex;
-  gap: 0.75rem;
-  align-items: end;
-  padding-top: 0.125rem;
-  padding-bottom: 0.25rem;
-
-  & *:hover {
-    color: var(--color-accent);
-    cursor: pointer;
-    transition: color 300ms ease;
-  }
+  display: grid;
+  grid-template-columns: 72px 72px 1fr auto;
+  grid-template-rows: auto;
+  column-gap: 0.5rem;
+  row-gap: 0.25rem;
 
   .created-at {
     font-family: var(--font-alt);
@@ -42,12 +35,32 @@ const { post, href } = Astro.props
     font-size: 0.875rem;
     font-weight: 700;
     text-transform: uppercase;
-    min-width: 9ch;
   }
 
   .title {
     font-size: 0.875rem;
-    margin-right: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  :last-child {
+    justify-content: end;
+  }
+}
+
+@media (width <= 800px) {
+  .listing {
+    display: grid;
+    grid-template-columns: 72px 72px 1fr;
+    grid-template-rows: auto auto;
+
+    .title {
+      grid-row: 2;
+      grid-column: 1 / 5;
+      text-overflow: inherit;
+      white-space: normal;
+    }
   }
 }
 </style>
@@ -56,5 +69,5 @@ const { post, href } = Astro.props
   <span class="created-at">{post.date}</span>
   <span class="category">{post.category}</span>
   <a class="title" href={href}>{post.title}</a>
-  <Tags tags={post.tags}/>
+  <Tags tags={post.tags} />
 </li>

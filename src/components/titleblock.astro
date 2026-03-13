@@ -31,7 +31,11 @@ const { post } = Astro.props
   margin-bottom: 1.5rem;
   letter-spacing: 1px;
   text-transform: capitalize;
-  /* font-family: var(--font-alt); */
+
+  @media (width <= 800px) {
+    font-size: 1.5rem;
+  }
+
 }
 
 .category {

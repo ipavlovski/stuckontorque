@@ -6,6 +6,11 @@ import { Icon } from 'astro-icon/components'
 .navbar {
   /* position: sticky; */
   margin: 1.25rem 3rem;
+  max-width: calc(1200px - 3rem);
+
+  @media (width >= calc(1200px + 3rem)) {
+    margin: 1.25rem auto;
+  }
 }
 
 .container {
