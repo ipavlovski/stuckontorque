@@ -9,9 +9,9 @@ const posts = await getCollection('posts')
 .listing-container {
 
   margin: 1.25rem 4.5rem;
-  max-width: calc(1200px - 6rem);
+  max-width: calc(1000px - 6rem);
 
-  @media (width >= calc(1200px + 4.5rem)) {
+  @media (width >= calc(1000px + 4.5rem)) {
     margin: 1.25rem auto;
   }
 }
@@ -20,7 +20,7 @@ const posts = await getCollection('posts')
 <Layout>
   <main>
     <ul class="listing-container">
-      {posts.map((post) => <Listing post={post.data} href={post.id} />)}
+      {posts.reverse().map((post) => <Listing post={post.data} href={post.id} />)}
     </ul>
   </main>
 </Layout>

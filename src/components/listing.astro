@@ -20,8 +20,8 @@ const { post, href } = Astro.props
   display: grid;
   grid-template-columns: 72px 72px 1fr auto;
   grid-template-rows: auto;
-  column-gap: 0.5rem;
-  row-gap: 0.25rem;
+  column-gap: 0.25rem;
+  margin-bottom: 0.25rem;
 
   & :hover {
     cursor: pointer;
@@ -60,6 +60,7 @@ const { post, href } = Astro.props
     display: grid;
     grid-template-columns: 72px 72px 1fr;
     grid-template-rows: auto auto;
+    margin-bottom: 0.5rem;
 
     .title {
       grid-row: 2;
