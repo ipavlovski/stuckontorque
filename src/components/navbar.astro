@@ -39,11 +39,23 @@ import { Icon } from 'astro-icon/components'
 
 .user-logo {
   font-size: 2rem;
+  position: relative;
 
-  :hover {
-    color: var(--color-accent);
+}
+
+.user-image {
+  width: 2rem;
+  height: 2rem;
+  object-fit: cover;
+  border-radius: 50%;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  transition: opacity 300ms ease;
+
+  &:hover {
+    opacity: 1;
     cursor: pointer;
-    transition: color 300ms ease;
   }
 }
 </style>
@@ -51,6 +63,9 @@ import { Icon } from 'astro-icon/components'
 <nav class="navbar">
   <div class="container">
     <div class="blog-logo"><a href="/"> Stuck On Torque </a></div>
-    <div class="user-logo"><Icon name="tabler:user-circle" /></div>
+    <div class="user-logo">
+      <Icon name="tabler:user-circle" />
+      <a href="https://github.com/ipavlovski" target="_blank"><img class="user-image" src="/image.png" alt="" /></a>
+    </div>
   </div>
 </nav>

@@ -1,6 +1,6 @@
 ---
 import Navbar from '../components/navbar.astro'
-const { title = 'CodeBlog' } = Astro.props
+const { title = 'Stuck on Torque' } = Astro.props
 ---
 
 <style is:global>
@@ -52,6 +52,7 @@ a, a:visited {
   --color-fg-main: hsl(0, 0%, 92%);
   --color-fg-alt: hsl(0, 0%, 57%);
   --color-accent: hsl(322, 77%, 54%);
+  --color-accent: #e42fa2;
   --font-main: "Montserrat", sans-serif;
   --font-alt: "Inconsolata", sans-serif;
   --font-logo: "Pacifico", system-ui;
@@ -70,6 +71,7 @@ body {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
