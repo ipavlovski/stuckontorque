@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content'
-import Listing, { type PostMetadata } from '../components/listing.astro'
+import Listing from '../components/listing.astro'
 import Layout from '../layouts/layout.astro'
 const posts = (await getCollection('posts')).sort(
   ({ data: a }, { data: b }) => b.date.localeCompare(a.date),
@@ -21,7 +21,7 @@ const posts = (await getCollection('posts')).sort(
 <Layout>
   <main>
     <ul class="listing-container">
-      {posts.map((post) => <Listing post={post.data} href={post.id} />)}
+      {posts.map((post) => <Listing post={post} href={post.id} />)}
     </ul>
   </main>
 </Layout>
