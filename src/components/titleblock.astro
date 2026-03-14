@@ -1,15 +1,9 @@
 ---
+import type { CollectionEntry } from 'astro:content'
 import Tags from './tags.astro'
 
-type PostMetadata = {
-  title: string
-  date: string
-  category: string
-  tags: string[]
-}
-
 interface Props {
-  post: PostMetadata
+  post: CollectionEntry<'posts'>
 }
 
 const { post } = Astro.props
@@ -77,10 +71,10 @@ const { post } = Astro.props
 
 <div>
   <div class="metadata">
-    <span class="created-at">{post.date}</span>
-    <span class="category">{post.category}</span>
-    <Tags tags={post.tags} showText={true} />
+    <span class="created-at">{post.data.date}</span>
+    <span class="category">{post.data.category}</span>
+    <Tags tags={post.data.tags} showText={true} />
   </div>
 
-  <h1 class="title">{post.title}</h1>
+  <h1 class="title">{post.data.title}</h1>
 </div>
